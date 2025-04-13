@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class InvoiceAppApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(InvoiceAppApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(InvoiceAppApplication.class, args);
+    }
 
 }

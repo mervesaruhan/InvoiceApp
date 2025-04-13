@@ -1,4 +1,9 @@
 package com.mervesaruhan.invoiceapp.enums;
 
-public class enumsector {
+public enum EnumSector {
+    FOOD,
+    CLOTHING,
+    ELECTRONICS,
+    COSMETICS,
+    OTHER
 }
