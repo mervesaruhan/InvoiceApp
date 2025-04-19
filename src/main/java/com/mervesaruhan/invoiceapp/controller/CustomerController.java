@@ -44,4 +44,9 @@ public class CustomerController {
         return ResponseEntity.ok(RestResponse.empty());
     }
 
+    @GetMapping("/{monthValue}")
+    public ResponseEntity<RestResponse<Double>> getTotalInvoiceAmountOfCustomersRegisteredInMonth(@PathVariable int monthValue){
+        return ResponseEntity.ok(RestResponse.of(customerService.getTotalInvoiceAmountOfCustomersRegisteredInMonth(monthValue)));
+    }
+
 }

@@ -3,6 +3,7 @@ package com.mervesaruhan.invoiceapp.controller;
 import com.mervesaruhan.invoiceapp.RestResponse;
 import com.mervesaruhan.invoiceapp.dto.request.CompanyCreateDTO;
 import com.mervesaruhan.invoiceapp.dto.response.CompanyResponseDTO;
+import com.mervesaruhan.invoiceapp.enums.EnumSector;
 import com.mervesaruhan.invoiceapp.service.CompanyService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Month;
 import java.util.List;
 
 @RestController
@@ -36,5 +38,10 @@ public class CompanyController {
     public ResponseEntity<RestResponse<Void>> deleteCompanyById(@PathVariable Long companyId) {
         companyService.deleteCompanyById(companyId);
         return ResponseEntity.ok(RestResponse.empty());
+    }
+
+    @GetMapping("/{month}/{avg}")
+    public ResponseEntity<RestResponse<List<EnumSector>>> getCompanySectorByMonthAndAverage(@PathVariable Month month, @PathVariable Double avg) {
+        return ResponseEntity.ok(RestResponse.of(companyService.getCompanyByDateAndAveragePrice(month,avg)));
     }
 }
